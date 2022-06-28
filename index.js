@@ -20,7 +20,11 @@ const { userProfile } = require('./controllers/userProfile');
 
 const { getAllUsers } = require('./controllers/allUsers');
 
-const { upload } = require('./controllers/upload-profile');
+const { userFriends } = require('./controllers/usersFriends');
+
+const { sendRequest } = require('./controllers/send-request');
+
+const { editProfile } = require('./controllers/edit-profile');
 
 app.use("/api/user/", validateUser);
 
@@ -40,7 +44,11 @@ app.get("/api/user/profile", userProfile);
 
 app.get("/api/user/get-all-users", getAllUsers);
 
-app.get("/api/user/upload-picture", upload);
+app.get("/api/user/users-friends", userFriends);
+
+app.post("/api/user/send-request", sendRequest);
+
+app.post("/api/user/edit-profile", editProfile)
 
 app.listen(PORT, ()=> {
     console.log("App is now running on port " + PORT);
